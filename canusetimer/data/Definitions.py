@@ -1,5 +1,5 @@
 class Penalty:
-    Ok, Plus_Two, Dnf = range(3)
+    Ok, Plus_Two, Dnf = "Ok", "+2", "DNF"
 
 
 class Solve:

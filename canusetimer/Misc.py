@@ -36,7 +36,7 @@ def absolute_time_to_timestamp(absolute_time=0):
     return "{}.{}".format(seconds, milliseconds)
 
 
-def cleared_print(text=""):
+def clear_and_println(text=""):
     """
     Auxiliary method to print strings in same console line.
     This function just "erases" the current line and write the text parameter.

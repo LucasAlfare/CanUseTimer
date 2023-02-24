@@ -12,7 +12,7 @@ class AppEvent(Enum):
         Timer_Started, \
         Timer_Update, \
         Timer_Finished,\
-        Timer_Finished_Penalty_With_Decision,\
+        Timer_Finished_With_Penalty_Decision,\
         App_Menu_Entered, \
         App_Timer_Entered, \
         App_See_Solves_Entered,\

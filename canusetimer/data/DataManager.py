@@ -17,6 +17,9 @@ class DataManager(EventManageable):
             menu_option = data
             if menu_option == 2:
                 self.notify_listeners(AppEvent.App_See_Solves_Entered, self.solves)
+            elif menu_option == 3:
+                self.solves = []
+                self.notify_listeners(AppEvent.App_See_Solves_Entered, self.solves)
 
         if event is AppEvent.App_Mode_Exit_Request:
             active_menu_id = data
@@ -26,7 +29,7 @@ class DataManager(EventManageable):
         if event is AppEvent.Penalty_Update:
             self.tmp_penalty = data
 
-        if event is AppEvent.Timer_Finished_Penalty_With_Decision:
+        if event is AppEvent.Timer_Finished:
             self.tmp_elapsed_time = data
             next_solve = Solve(
                 time=self.tmp_elapsed_time,

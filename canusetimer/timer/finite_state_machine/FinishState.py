@@ -1,3 +1,5 @@
+from canusetimer.Misc import absolute_time_to_timestamp
+from canusetimer.data.Definitions import Penalty
 from canusetimer.timer.finite_state_machine.TimerFiniteStateMachine import *
 
 
@@ -15,7 +17,23 @@ class FinishState(TimerState):
 
     def update(self, event_manageable, data):
         real_elapsed_time = data - self.real_start_time
+
+        # TODO: refactor this decision block to an appropriated scope
+        time_penalty_decision_answer = input(
+            """
+            Your time: {}
+            Set penalty to DNF (1) or +2 (2)?
+            Leave blank (hit "Enter") to continue.
+            """.format(absolute_time_to_timestamp(real_elapsed_time)).strip()
+        ).strip()
+
+        if time_penalty_decision_answer.__eq__('1'):
+            event_manageable.notify_listeners(event=AppEvent.Penalty_Update, data=Penalty.Dnf)
+        elif time_penalty_decision_answer.__eq__('2'):
+            event_manageable.notify_listeners(event=AppEvent.Penalty_Update, data=Penalty.Plus_Two)
+
         event_manageable.notify_listeners(event=AppEvent.Timer_Finished, data=real_elapsed_time)
+
 
     def suspend(self):
         pass
