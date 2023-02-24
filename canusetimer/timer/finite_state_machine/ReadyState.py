@@ -1,12 +1,12 @@
-from finite_state_machine.TimerFiniteStateMachine import *
-from EventListening import *
+from canusetimer.timer.finite_state_machine.TimerFiniteStateMachine import *
+from canusetimer.EventListening import *
 
 
 class ReadyState(TimerState):
 
     def handle_input(self, input_type, data=None):
         if input_type is input_release:
-            from finite_state_machine.SolveState import SolveState
+            from canusetimer.timer.finite_state_machine.SolveState import SolveState
             return SolveState()
         return None
 

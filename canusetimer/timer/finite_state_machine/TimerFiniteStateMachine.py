@@ -1,4 +1,4 @@
-from EventListening import AppEvent
+from canusetimer.EventListening import AppEvent
 
 input_press = AppEvent.Timer_Toggle_Down
 input_release = AppEvent.Timer_Toggle_Up
