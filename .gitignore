@@ -1,0 +1,13 @@
+gradlew
+gradlew.bat
+
+*.iml
+out/
+build/
+.idea/
+
+# Project exclude paths
+/.gradle/
+
+/node_modules/
+/server/node_modules/
