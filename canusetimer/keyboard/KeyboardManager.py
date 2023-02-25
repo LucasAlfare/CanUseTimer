@@ -2,6 +2,7 @@ from pynput import keyboard
 from pynput.keyboard import Key
 from canusetimer.EventListening import *
 from canusetimer.Misc import get_current_time
+import os
 
 
 class KeyboardManager(EventManageable):
@@ -20,10 +21,12 @@ class KeyboardManager(EventManageable):
                     self.notify_listeners(AppEvent.App_Timer_Entered)
                     self.setup_keyboard_listening()
 
-        # this statement is a mc-gyverism to activate finite state machine when finished
-        if event is AppEvent.Timer_Finished:
-            self.notify_listeners(event=AppEvent.Timer_Toggle_Down, data=get_current_time())
-            self.notify_listeners(event=AppEvent.Timer_Toggle_Up, data=get_current_time())
+        # TODO: remove platform checking
+        if os.name in ('nt', 'dos'):
+            # # this statement is a mc-gyverism to activate finite state machine when finished
+            if event is AppEvent.Timer_Finished:
+                self.notify_listeners(event=AppEvent.Timer_Toggle_Down, data=get_current_time())
+                self.notify_listeners(event=AppEvent.Timer_Toggle_Up, data=get_current_time())
 
     def setup_keyboard_listening(self):
         # initializes the target functions to the pynput library
