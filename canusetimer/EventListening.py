@@ -6,22 +6,23 @@ class AppEvent(Enum):
     This class holds items to be used as non-value items, once
     then are important only to indicate stuff.
     """
-    Timer_Toggle_Down,\
-        Timer_Toggle_Up,\
+    Timer_Toggle_Down, \
+        Timer_Toggle_Up, \
         Timer_Ready, \
         Timer_Started, \
         Timer_Update, \
-        Timer_Finished,\
-        Timer_Finished_With_Penalty_Decision,\
+        Timer_Finished, \
+        Timer_Finished_With_Penalty_Decision, \
         App_Menu_Entered, \
         App_Timer_Entered, \
-        App_See_Solves_Entered,\
-        App_Clear_Solves_Entered,\
+        App_See_Solves_Entered, \
+        App_Clear_Solves_Entered, \
         App_Mode_Exited, \
-        App_Mode_Exit_Request,\
-        Solves_Update,\
-        Solves_Clear,\
-        Penalty_Update = range(16)
+        App_Mode_Exit_Request, \
+        Solves_Update, \
+        Solves_Clear, \
+        Penalty_Update, \
+        Command_Request = range(17)
 
 
 class EventManageable:
