@@ -35,7 +35,12 @@ class ApplicationLoopManager(EventManageable):
                 print('This is your solves:')
                 index = 0
                 for s in solves:
-                    print("{}. {} {}\t{}".format(index + 1, absolute_time_to_timestamp(s.time), s.penalty, s.scramble))
+                    print("{}. {} {}\t{}".format(
+                        index + 1,
+                        absolute_time_to_timestamp(s.time),
+                        s.penalty,
+                        s.scramble)
+                    )
                     index += 1
                 print('\n')
                 while True:

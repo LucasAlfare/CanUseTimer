@@ -1,4 +1,4 @@
-from canusetimer.Misc import absolute_time_to_timestamp
+from canusetimer.Misc import absolute_time_to_timestamp, clear_console
 from canusetimer.data.Definitions import Penalty
 from canusetimer.timer.finite_state_machine.TimerFiniteStateMachine import *
 
@@ -19,6 +19,7 @@ class FinishState(TimerState):
         real_elapsed_time = data - self.real_start_time
 
         # TODO: refactor this decision block to an appropriated scope
+        clear_console()
         time_penalty_decision_answer = input(
             """
             Your time: {}
