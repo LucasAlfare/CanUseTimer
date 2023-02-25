@@ -35,6 +35,5 @@ class FinishState(TimerState):
 
         event_manageable.notify_listeners(event=AppEvent.Timer_Finished, data=real_elapsed_time)
 
-
     def suspend(self):
         pass
