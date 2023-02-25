@@ -1,5 +1,5 @@
 from canusetimer.EventListening import AppEvent
-from canusetimer.console_dialog.Definitions import Dialog
+from canusetimer.dialog.Definitions import Dialog
 
 
 class Menu(Dialog):

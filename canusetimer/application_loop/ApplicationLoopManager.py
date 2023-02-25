@@ -1,8 +1,8 @@
 from canusetimer.EventListening import EventManageable, AppEvent
 from canusetimer.Misc import clear_console, clear_and_println, absolute_time_to_timestamp
-from canusetimer.console_dialog.Answers import *
-from canusetimer.console_dialog.Menu import Menu
-from canusetimer.console_dialog.Texts import *
+from canusetimer.dialog.Answers import *
+from canusetimer.dialog.Menu import Menu
+from canusetimer.dialog.Texts import *
 
 
 class ApplicationLoopManager(EventManageable):
