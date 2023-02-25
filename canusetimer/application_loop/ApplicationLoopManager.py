@@ -1,11 +1,15 @@
 from canusetimer.EventListening import EventManageable, AppEvent
 from canusetimer.Misc import clear_console, clear_and_println, absolute_time_to_timestamp
+from canusetimer.console_dialog.Answers import *
+from canusetimer.console_dialog.Menu import Menu
+from canusetimer.console_dialog.Texts import *
 
 
 class ApplicationLoopManager(EventManageable):
+    current_dialog = None
 
     def initialize(self):
-        self.do_menu_popup()
+        self.do_menu_dialog()
 
     def on_event(self, event, data):
         if event is AppEvent.Timer_Started:
@@ -26,7 +30,7 @@ class ApplicationLoopManager(EventManageable):
             clear_and_println(absolute_time_to_timestamp(time))
 
         if event is AppEvent.App_Mode_Exited:
-            self.do_menu_popup()
+            self.do_menu_dialog()
 
         if event is AppEvent.App_See_Solves_Entered:
             solves = data
@@ -64,17 +68,9 @@ class ApplicationLoopManager(EventManageable):
                 input("""All your solves was deleted. Hit "Enter" to back to menu...""")
                 self.notify_listeners(AppEvent.App_Mode_Exit_Request, 3)
 
-    def do_menu_popup(self):
-        clear_console()
-        print('Welcome to CanUseTimer!')
-        print()
-        menu_answer = input(
-            """
-            Enter a number:
-
-            1: Start
-            3: See times
-            4: Clear all times
-            """.strip()
-        )
-        self.notify_listeners(AppEvent.App_Menu_Entered, int(menu_answer) - 1)
+    def do_menu_dialog(self):
+        self.current_dialog = Menu()
+        self.current_dialog.message = Menu_Message_Text
+        self.current_dialog.expected_answers = Menu_Answers
+        self.current_dialog.event_manageable = self
+        self.current_dialog.start()
