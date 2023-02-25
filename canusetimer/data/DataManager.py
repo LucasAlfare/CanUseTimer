@@ -18,13 +18,16 @@ class DataManager(EventManageable):
             if menu_option == 2:
                 self.notify_listeners(AppEvent.App_See_Solves_Entered, self.solves)
             elif menu_option == 3:
-                self.solves = []
-                self.notify_listeners(AppEvent.App_See_Solves_Entered, self.solves)
+                self.notify_listeners(AppEvent.App_Clear_Solves_Entered, self.solves)
 
         if event is AppEvent.App_Mode_Exit_Request:
             active_menu_id = data
-            if active_menu_id == 2:
+            if active_menu_id == 2 or active_menu_id == 3:
                 self.notify_listeners(AppEvent.App_Mode_Exited)
+
+        if event is AppEvent.Solves_Clear:
+            self.solves = []
+            self.notify_listeners(AppEvent.Solves_Update, self.solves)
 
         if event is AppEvent.Penalty_Update:
             self.tmp_penalty = data

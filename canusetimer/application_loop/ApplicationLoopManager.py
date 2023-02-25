@@ -55,6 +55,15 @@ class ApplicationLoopManager(EventManageable):
                         self.notify_listeners(AppEvent.App_Mode_Exit_Request, 2)
                         break
 
+        if event is AppEvent.App_Clear_Solves_Entered:
+            clear_console()
+            clear_solves_confirmation = input("Delete all your solves? (y/n)")
+            if clear_solves_confirmation.__eq__('y'):
+                self.notify_listeners(AppEvent.Solves_Clear)
+                clear_console()
+                input("""All your solves was deleted. Hit "Enter" to back to menu...""")
+                self.notify_listeners(AppEvent.App_Mode_Exit_Request, 3)
+
     def do_menu_popup(self):
         clear_console()
         print('Welcome to CanUseTimer!')

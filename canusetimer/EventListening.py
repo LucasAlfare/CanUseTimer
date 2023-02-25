@@ -16,10 +16,12 @@ class AppEvent(Enum):
         App_Menu_Entered, \
         App_Timer_Entered, \
         App_See_Solves_Entered,\
+        App_Clear_Solves_Entered,\
         App_Mode_Exited, \
         App_Mode_Exit_Request,\
         Solves_Update,\
-        Penalty_Update = range(14)
+        Solves_Clear,\
+        Penalty_Update = range(16)
 
 
 class EventManageable:
