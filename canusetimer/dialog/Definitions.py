@@ -24,7 +24,6 @@ class Dialog:
         self.expected_answers = expected_answers
         self.actual_answer = actual_answer.strip()
         self.event_manageable = event_manageable
-        clear_console()
 
     def actual_answer_is_valid(self):
         """
