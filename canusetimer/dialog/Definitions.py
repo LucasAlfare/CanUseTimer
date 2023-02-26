@@ -37,13 +37,13 @@ class Dialog:
         """
         This method is called when a valid answer was input.
         """
-        raise NotImplementedError("Please Implement this method")
+        raise NotImplementedError("Not implemented yet.")
 
     def on_invalid(self):
         """
         This method is called when an invalid answer was input.
         """
-        raise NotImplementedError("Please Implement this method")
+        raise NotImplementedError("Not implemented yet.")
 
     def start(self):
         while True:
