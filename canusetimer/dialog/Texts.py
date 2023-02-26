@@ -7,3 +7,4 @@ Menu_Message_Text = """
             4. Clear all times
             """
 
+Menu_Clear_Solves_Message_Text = "Delete all your solves? (y/n)"
