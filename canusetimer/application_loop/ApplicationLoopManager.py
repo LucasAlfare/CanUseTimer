@@ -38,6 +38,7 @@ class ApplicationLoopManager(EventManageable):
             solves = data
 
             if len(solves) > 0:
+                # TODO: refactor/move this listing solves to an appropriated scope.
                 see_solves_text = 'This is your solves:\n'
 
                 index = 0
