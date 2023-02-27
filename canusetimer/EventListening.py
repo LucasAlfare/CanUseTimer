@@ -4,7 +4,7 @@ from enum import Enum
 class AppEvent(Enum):
     """
     This class holds items to be used as non-value items, once
-    then are important only to indicate stuff.
+    they are important only to indicate stuff.
     """
     Timer_Toggle_Down, \
         Timer_Toggle_Up, \

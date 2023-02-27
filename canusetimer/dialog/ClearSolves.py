@@ -10,7 +10,7 @@ class ClearSolves(Dialog):
 
     def on_valid(self):
         clear_console()
-        # TODO: create custom [dialog] only for this..?
+        # TODO: should be created a custom [dialog] only for this..?
         if self.actual_answer.__eq__('y'):
             self.event_manageable.notify_listeners(AppEvent.Solves_Clear)
             print("All your solves was deleted.")
