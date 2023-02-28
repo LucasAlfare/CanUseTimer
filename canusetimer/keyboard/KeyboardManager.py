@@ -23,11 +23,11 @@ class KeyboardManager(EventManageable):
 
     def setup_keyboard_listening(self):
         # initializes the target functions to the pynput library
-        def on_press(key):
+        def my_on_press(key):
             if key == Key.space:
                 self.notify_listeners(event=AppEvent.Timer_Toggle_Down, data=get_current_time())
 
-        def on_release(key):
+        def my_on_release(key):
             if key == Key.space:
                 self.notify_listeners(event=AppEvent.Timer_Toggle_Up, data=get_current_time())
             elif key == Key.esc:
@@ -38,6 +38,6 @@ class KeyboardManager(EventManageable):
 
         self.initiated = True
 
-        self.keyboard_listener = keyboard.Listener(on_press=on_press, on_release=on_release)
+        self.keyboard_listener = keyboard.Listener(on_press=my_on_press, on_release=my_on_release)
         self.keyboard_listener.start()
         self.keyboard_listener.join()
