@@ -11,7 +11,7 @@ class AskState(TimerState):
 
     def update(self, event_manageable, data):
         answer = input("[ASKING]")
-        print("answer=[{}]".format(answer))
+        print("answer=[{}]".format(answer.strip()))
         event_manageable.notify_listeners(AppEvent.Penalty_Update)
 
     def suspend(self):
