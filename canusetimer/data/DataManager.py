@@ -26,14 +26,16 @@ class DataManager(EventManageable):
                 self.notify_listeners(AppEvent.App_Mode_Exited)
 
         if event is AppEvent.Solves_Clear:
-            self.solves = []
+            self.solves.clear()
             self.notify_listeners(AppEvent.Solves_Update, self.solves)
 
         if event is AppEvent.Penalty_Update:
             self.tmp_penalty = data
 
-        if event is AppEvent.Timer_Finished:
+        if event is AppEvent.Timer_Stopped:
             self.tmp_elapsed_time = data
+
+        if event is AppEvent.Timer_Finished:
             next_solve = Solve(
                 time=self.tmp_elapsed_time,
                 scramble=self.tmp_scramble,

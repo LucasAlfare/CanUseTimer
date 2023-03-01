@@ -1,9 +1,7 @@
 from canusetimer.timer.finite_state_machine.TimerFiniteStateMachine import *
-from canusetimer.EventListening import *
 
 
 class ReadyState(TimerState):
-
     def handle_input(self, input_type, data=None):
         if input_type is input_release:
             from canusetimer.timer.finite_state_machine.SolveState import SolveState
@@ -11,7 +9,7 @@ class ReadyState(TimerState):
         return None
 
     def update(self, event_manageable, data):
-        event_manageable.notify_listeners(event=AppEvent.Timer_Ready)
+        pass
 
     def suspend(self):
         pass

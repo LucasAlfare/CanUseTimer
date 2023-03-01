@@ -1,7 +1,7 @@
 from threading import Thread
 
+from canusetimer.Misc import get_current_time
 from canusetimer.timer.finite_state_machine.TimerFiniteStateMachine import *
-from canusetimer.Misc import *
 
 
 class SolveState(TimerState):
@@ -13,11 +13,13 @@ class SolveState(TimerState):
     def handle_input(self, input_type, data=None):
         if input_type is input_press:
             self.suspend()
-            from canusetimer.timer.finite_state_machine.FinishState import FinishState
-            return FinishState(real_start_time=self.start)
+            from canusetimer.timer.finite_state_machine.StopState import StopState
+            return StopState(real_start_time=self.start)
         return None
 
     def update(self, event_manageable, data):
+        print("[SOLVE]")
+
         def repeat():
             self.start = data
             while self.repeating:

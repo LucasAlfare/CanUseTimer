@@ -1,10 +1,9 @@
 from canusetimer.EventListening import *
-# from canusetimer.timer.finite_state_machine.ReadyState import ReadyState
-from canusetimer.timer.finite_state_machine.rework.ReadyState2 import ReadyState2
+from canusetimer.timer.finite_state_machine.ReadyState import ReadyState
 
 
 class TimerManager(EventManageable):
-    current_state = ReadyState2()
+    current_state = ReadyState()
 
     def initialize(self):
         self.initiated = True
@@ -12,7 +11,7 @@ class TimerManager(EventManageable):
     def on_event(self, event, data):
         if event is AppEvent.Timer_Toggle_Down or \
                 event is AppEvent.Timer_Toggle_Up or \
-                event is AppEvent.Penalty_Update:
+                event is AppEvent.Timer_Finished:
             next_state = self.current_state.handle_input(input_type=event)
             if next_state is not None:
                 current_toggle_time = data

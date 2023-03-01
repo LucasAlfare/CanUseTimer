@@ -11,6 +11,7 @@ class AppEvent(Enum):
         Timer_Ready, \
         Timer_Started, \
         Timer_Update, \
+        Timer_Stopped, \
         Timer_Finished, \
         Timer_Finished_With_Penalty_Decision, \
         App_Menu_Entered, \
@@ -22,7 +23,7 @@ class AppEvent(Enum):
         Solves_Update, \
         Solves_Clear, \
         Penalty_Update, \
-        Command_Request = range(17)
+        Command_Request = range(18)
 
 
 class EventManageable:
