@@ -10,7 +10,6 @@ class ReadyState(TimerState):
         return None
 
     def update(self, event_manageable, data):
-        print("ready")
         pass
 
     def suspend(self):
