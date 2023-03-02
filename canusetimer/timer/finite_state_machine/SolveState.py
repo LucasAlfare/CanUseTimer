@@ -18,8 +18,6 @@ class SolveState(TimerState):
         return None
 
     def update(self, event_manageable, data):
-        print("[SOLVE]")
-
         def repeat():
             self.start = data
             while self.repeating:

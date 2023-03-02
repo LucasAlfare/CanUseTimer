@@ -19,7 +19,6 @@ class AskState(TimerState):
         return None
 
     def update(self, event_manageable, data):
-
         ask_text = """
             Your time: {}
             Set penalty to DNF (1) or +2 (2)?

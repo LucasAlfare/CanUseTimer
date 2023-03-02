@@ -61,4 +61,4 @@ class Dialog:
 
     def ask_for_answer(self):
         clear_console()
-        self.actual_answer = input(self.message)
+        self.actual_answer = input(self.message).strip()
