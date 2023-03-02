@@ -2,7 +2,6 @@ from pynput import keyboard
 from pynput.keyboard import Key
 from canusetimer.EventListening import *
 from canusetimer.Misc import get_current_time
-import os
 
 
 class KeyboardManager(EventManageable):
@@ -38,6 +37,8 @@ class KeyboardManager(EventManageable):
 
         self.initiated = True
 
-        self.keyboard_listener = keyboard.Listener(on_press=my_on_press, on_release=my_on_release)
+        self.keyboard_listener = keyboard.Listener(
+            on_press=my_on_press, on_release=my_on_release
+        )
         self.keyboard_listener.start()
         self.keyboard_listener.join()
