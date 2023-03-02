@@ -20,12 +20,7 @@ class ApplicationLoopManager(EventManageable):
 
         if event is AppEvent.Timer_Ready or event is AppEvent.App_Timer_Entered:
             clear_console()
-            print(
-                """
-                >>> You are in the timer! Use the space bar to toggle/control the start/stop.
-                To quit/back to the menu, just hit "Esc" (this may cause console window lost focus).
-                """.strip()
-            )
+            print(Timer_Menu_Greeting_Text.strip())
 
         if event is AppEvent.Timer_Update:
             time = data
@@ -49,7 +44,7 @@ class ApplicationLoopManager(EventManageable):
 
                 see_solves_text += 'Back to menu? (y) '
             else:
-                see_solves_text = "You don't have solves yet. Back to menu? (y) "
+                see_solves_text = See_Solves_1_Text
 
             self.current_dialog = SeeSolves()
             self.current_dialog.message = see_solves_text

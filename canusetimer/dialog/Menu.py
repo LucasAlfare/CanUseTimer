@@ -15,4 +15,3 @@ class Menu(Dialog):
 
     def on_invalid(self):
         pass
-

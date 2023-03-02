@@ -1,6 +1,7 @@
 from canusetimer.EventListening import AppEvent
 from canusetimer.Misc import absolute_time_to_timestamp
 from canusetimer.dialog.Answers import Ask_Penalty_Answers
+from canusetimer.dialog.Texts import Timer_Ask_Solve_Penalty_Text
 from canusetimer.timer.finite_state_machine.TimerFiniteStateMachine import TimerState
 from canusetimer.dialog.AskPenaltyDialog import AskPenaltyDialog
 
@@ -19,11 +20,9 @@ class AskState(TimerState):
         return None
 
     def update(self, event_manageable, data):
-        ask_text = """
-            Your time: {}
-            Set penalty to DNF (1) or +2 (2)?
-            Enter (y) to continue.
-            """.format(absolute_time_to_timestamp(self.elapsed_time)).strip()
+        ask_text = Timer_Ask_Solve_Penalty_Text.format(
+            absolute_time_to_timestamp(self.elapsed_time)
+        ).strip()
 
         ask_dialog = AskPenaltyDialog()
         ask_dialog.message = ask_text
