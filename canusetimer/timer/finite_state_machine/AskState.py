@@ -2,7 +2,7 @@ from canusetimer.EventListening import AppEvent
 from canusetimer.Misc import absolute_time_to_timestamp
 from canusetimer.dialog.Answers import Ask_Penalty_Answers
 from canusetimer.timer.finite_state_machine.TimerFiniteStateMachine import TimerState
-from canusetimer.dialog.AskPenalty import AskPenaltyDialog
+from canusetimer.dialog.AskPenaltyDialog import AskPenaltyDialog
 
 
 class AskState(TimerState):
