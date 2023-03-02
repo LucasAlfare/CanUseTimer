@@ -17,6 +17,7 @@ class KeyboardManager(EventManageable):
             # this manager only cares about answer 0
             if answer == 0:
                 if not self.initiated:
+                    # inserts keyboard listening thread always timer mode is requested
                     self.notify_listeners(AppEvent.App_Timer_Entered)
                     self.setup_keyboard_listening()
 
@@ -30,6 +31,8 @@ class KeyboardManager(EventManageable):
             if key == Key.space:
                 self.notify_listeners(event=AppEvent.Timer_Toggle_Up, data=get_current_time())
             elif key == Key.esc:
+                # turns off and removes keyboard listening
+                # thread when Esc key is released
                 self.keyboard_listener.stop()
                 self.keyboard_listener = None
                 self.initiated = False

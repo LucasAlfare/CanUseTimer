@@ -46,12 +46,26 @@ class Dialog:
         raise NotImplementedError("Not implemented yet.")
 
     def start(self):
+        """
+        Starts this current dialog.
+
+        This will run indefinitely until a valid
+        answer enters through an ```input()``` call.
+        """
         while True:
             self.ask_for_answer()
             if self.advance():
                 break
 
     def advance(self):
+        """
+        This method checks is the current answer that came from input
+        is valid and call the target interface method depending on the
+        analysis.
+
+        :return: True if the dialog was successfully processed or False if
+        the dialog successfully processed the target invalid function.
+        """
         if self.actual_answer_is_valid():
             self.on_valid()
             return True
@@ -60,5 +74,10 @@ class Dialog:
             return False
 
     def ask_for_answer(self):
+        """
+        This method clear the console and throw the specified
+        dialog text message to the console, while keeps stopped
+        waiting by some input.
+        """
         clear_console()
         self.actual_answer = input(self.message).strip()
