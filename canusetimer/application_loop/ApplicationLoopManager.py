@@ -34,15 +34,15 @@ class ApplicationLoopManager(EventManageable):
 
             if len(solves) > 0:
                 # TODO: refactor/move this listing solves to an appropriated scope.
-                see_solves_text = 'This is your solves:\n'
+                see_solves_text = See_Solves_Header_Text
 
                 index = 0
                 for s in solves:
-                    see_solves_text += "{}. {} {}\t{}\n" \
+                    see_solves_text += See_Solves_Solve_Row_Text \
                         .format(index + 1, absolute_time_to_timestamp(s.time), s.penalty, s.scramble)
                     index += 1
 
-                see_solves_text += 'Back to menu? (y) '
+                see_solves_text += See_Solves_Footer_Text
             else:
                 see_solves_text = See_Solves_Empty_Text
 

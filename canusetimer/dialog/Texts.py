@@ -20,4 +20,10 @@ Timer_Ask_Solve_Penalty_Text = """
             Enter (y) to continue. 
             """
 
+See_Solves_Header_Text = "This is your solves:\n{}"
+
+See_Solves_Solve_Row_Text = "{}. {} {}\t{}\n"
+
+See_Solves_Footer_Text = "Back to menu? (y) "
+
 See_Solves_Empty_Text = "You don't have solves yet. Back to menu? (y) "
