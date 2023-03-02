@@ -44,7 +44,7 @@ def clear_and_println(text=""):
     :return: None
     """
     sys.stdout.write('\r')
-    sys.stdout.write(' ' * 20)
+    sys.stdout.write(' ' * 20)  # weird mc-gyverism
     sys.stdout.write('\r')
     sys.stdout.write(text)
     sys.stdout.flush()

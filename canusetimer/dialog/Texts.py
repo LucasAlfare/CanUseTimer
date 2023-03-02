@@ -20,4 +20,4 @@ Timer_Ask_Solve_Penalty_Text = """
             Enter (y) to continue. 
             """
 
-See_Solves_1_Text = "You don't have solves yet. Back to menu? (y) "
+See_Solves_Empty_Text = "You don't have solves yet. Back to menu? (y) "
