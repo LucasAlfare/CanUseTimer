@@ -9,8 +9,9 @@ class TimerManager(EventManageable):
         self.initiated = True
 
     def on_event(self, event, data):
-        if event is AppEvent.Timer_Toggle_Down or \
-                event is AppEvent.Timer_Toggle_Up or \
+        # toggle events are fires FSM states and Timer Finish
+        # is used to advance penalty asking
+        if event is AppEvent.Timer_Toggle_Down or event is AppEvent.Timer_Toggle_Up or \
                 event is AppEvent.Timer_Finished:
             next_state = self.current_state.handle_input(input_type=event)
             if next_state is not None:
