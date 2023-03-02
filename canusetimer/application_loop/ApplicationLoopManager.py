@@ -1,8 +1,8 @@
 from canusetimer.EventListening import EventManageable, AppEvent
 from canusetimer.Misc import clear_console, clear_and_println, absolute_time_to_timestamp
-from canusetimer.dialog.Menu import Menu
-from canusetimer.dialog.SeeSolves import SeeSolves
-from canusetimer.dialog.ClearSolves import ClearSolves
+from canusetimer.dialog.MenuDialog import Menu
+from canusetimer.dialog.SeeSolvesDialog import SeeSolves
+from canusetimer.dialog.ClearSolvesDialog import ClearSolves
 from canusetimer.dialog.Texts import *
 from canusetimer.dialog.Answers import *
 
