@@ -23,7 +23,10 @@ class AppEvent(Enum):
         Solves_Update, \
         Solves_Clear, \
         Penalty_Update, \
-        Command_Request = range(18)
+        Command_Request, \
+        Scramble_Generated, \
+        Request_Scramble_Generated, \
+        = range(20)
 
 
 class EventManageable:
