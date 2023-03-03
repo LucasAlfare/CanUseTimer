@@ -38,8 +38,12 @@ class ApplicationLoopManager(EventManageable):
 
                 index = 0
                 for s in solves:
-                    see_solves_text += See_Solves_Solve_Row_Text \
-                        .format(index + 1, absolute_time_to_timestamp(s.time), s.penalty, s.scramble)
+                    see_solves_text += See_Solves_Solve_Row_Text.format(
+                        index + 1,
+                        absolute_time_to_timestamp(s.time),
+                        s.penalty,
+                        s.scramble
+                    )
                     index += 1
 
                 see_solves_text += See_Solves_Footer_Text
