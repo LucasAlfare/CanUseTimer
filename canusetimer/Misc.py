@@ -1,5 +1,6 @@
+import subprocess
+import platform
 import sys
-import os
 from time import time
 
 
@@ -41,20 +42,23 @@ def clear_and_println(text=""):
     Auxiliary method to print strings in same console line.
     This function just "erases" the current line and write the text parameter.
     :param text: string to be printed
-    :return: None
     """
-    sys.stdout.write('\r')
-    sys.stdout.write(' ' * 20)  # weird mc-gyverism
-    sys.stdout.write('\r')
-    sys.stdout.write(text)
-    sys.stdout.flush()
+    clear_console()
+    print(text)
 
 
 def clear_console():
     """
     This method just clears the console.
+    Source: https://stackoverflow.com/a/23075152
     """
-    if os.name in ('nt', 'dos'):
-        os.system('cls')
-    else:
-        os.system('clear')
+    if platform.system() == "Windows":
+        if platform.release() in {"10", "11"}:
+            # Needed to fix a bug regarding Windows 10;
+            # not sure about Windows 11
+            subprocess.run("", shell=True)
+            print("\033c", end="")
+        else:
+            subprocess.run(["cls"])
+    else:  # Linux and Mac
+        print("\033c", end="")
