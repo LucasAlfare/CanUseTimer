@@ -16,6 +16,8 @@ Timer_Menu_Greeting_Text = """
 To quit/back to the menu, just hit "Esc" (this may cause console window lost focus).
 """
 
+Timer_Scramble_Presentation_Text = "This is your scramble: {}"
+
 Menu_Clear_Solves_Message_Text = "Delete all your solves? (y/n)"
 
 Timer_Ask_Solve_Penalty_Text = """

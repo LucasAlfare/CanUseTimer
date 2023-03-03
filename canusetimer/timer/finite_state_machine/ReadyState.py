@@ -9,8 +9,9 @@ class ReadyState(TimerState):
         return None
 
     def update(self, event_manageable, data):
-        event_manageable.notify_listeners(event=AppEvent.Timer_Ready, data=None)
-        pass
+        print("ready")
+        event_manageable.notify_listeners(event=AppEvent.Timer_Ready)
+        event_manageable.notify_listeners(event=AppEvent.Request_Scramble_Generated)
 
     def suspend(self):
         pass

@@ -29,6 +29,9 @@ class DataManager(EventManageable):
             self.solves.clear()
             self.notify_listeners(AppEvent.Solves_Update, self.solves)
 
+        if event is AppEvent.Scramble_Generated:
+            self.tmp_scramble = data[1]
+
         if event is AppEvent.Penalty_Update:
             self.tmp_penalty = data
 

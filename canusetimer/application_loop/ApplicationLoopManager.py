@@ -9,18 +9,26 @@ from canusetimer.dialog.Answers import *
 
 class ApplicationLoopManager(EventManageable):
     current_dialog = None
+    tmp_scramble = ''
 
     def initialize(self):
         self.do_main_menu_dialog()
+        self.notify_listeners(AppEvent.Request_Scramble_Generated)
 
     def on_event(self, event, data):
         if event is AppEvent.Timer_Started:
             clear_console()
-            pass
 
-        if event is AppEvent.Timer_Ready or event is AppEvent.App_Timer_Entered:
+        if event is AppEvent.App_Timer_Entered:
+            print(Timer_Menu_Greeting_Text.strip())
+
+        if event is AppEvent.Timer_Ready:
             clear_console()
             print(Timer_Menu_Greeting_Text.strip())
+
+        if event is AppEvent.Scramble_Generated:
+            self.tmp_scramble = data[1]
+            print(self.tmp_scramble)
 
         if event is AppEvent.Timer_Update:
             time = data
@@ -69,3 +77,8 @@ class ApplicationLoopManager(EventManageable):
         self.current_dialog.expected_answers = Menu_Answers
         self.current_dialog.event_manageable = self
         self.current_dialog.start()
+
+    def do_timer_greet_process(self):
+        # clear_console()
+        print(Timer_Menu_Greeting_Text.strip())
+        print(Timer_Scramble_Presentation_Text.format(self.tmp_scramble))

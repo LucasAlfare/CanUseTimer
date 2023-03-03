@@ -24,7 +24,7 @@ class ScrambleManager(EventManageable):
 
     def generate_scramble(self):
         self.last_scramble = self.current_scramble
-        self.current_scramble = "Scramble KKKKK {}".format(random.randint(10, 20))
+        self.current_scramble = "Scramble KKKKK {}".format(random.randint(0, 99999))
 
     def notify_scramble(self):
         self.notify_listeners(

@@ -20,7 +20,6 @@ class AskState(TimerState):
         return None
 
     def update(self, event_manageable, data):
-        print('[ask]')
         ask_text = Timer_Ask_Solve_Penalty_Text.format(
             absolute_time_to_timestamp(self.elapsed_time)
         ).strip()
