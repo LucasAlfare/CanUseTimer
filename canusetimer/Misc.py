@@ -1,6 +1,5 @@
 import subprocess
 import platform
-import sys
 from time import time
 
 
