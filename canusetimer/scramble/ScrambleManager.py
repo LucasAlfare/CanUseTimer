@@ -29,5 +29,8 @@ class ScrambleManager(EventManageable):
     def notify_scramble(self):
         self.notify_listeners(
             event=AppEvent.Scramble_Generated,
-            data=[self.last_scramble, self.current_scramble]
+            data=[
+                self.last_scramble,  # 0
+                self.current_scramble  # 1
+            ]
         )

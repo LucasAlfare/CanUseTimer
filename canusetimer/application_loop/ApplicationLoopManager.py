@@ -5,11 +5,14 @@ from canusetimer.dialog.SeeSolvesDialog import SeeSolves
 from canusetimer.dialog.ClearSolvesDialog import ClearSolves
 from canusetimer.dialog.Texts import *
 from canusetimer.dialog.Answers import *
+from threading import Thread
 
 
 class ApplicationLoopManager(EventManageable):
     current_dialog = None
     tmp_scramble = ''
+    scramble_thread = None
+    scramble_updated = False
 
     def initialize(self):
         self.do_main_menu_dialog()
@@ -23,12 +26,12 @@ class ApplicationLoopManager(EventManageable):
             print(Timer_Menu_Greeting_Text.strip())
 
         if event is AppEvent.Timer_Ready:
-            clear_console()
+            # clear_console()
             print(Timer_Menu_Greeting_Text.strip())
 
         if event is AppEvent.Scramble_Generated:
-            self.tmp_scramble = data[1]
-            print(self.tmp_scramble)
+            self.scramble_updated = False
+            self.setup_scramble_thread(target_data=data)
 
         if event is AppEvent.Timer_Update:
             time = data
@@ -82,3 +85,13 @@ class ApplicationLoopManager(EventManageable):
         # clear_console()
         print(Timer_Menu_Greeting_Text.strip())
         print(Timer_Scramble_Presentation_Text.format(self.tmp_scramble))
+
+    def setup_scramble_thread(self, target_data):
+        def scramble_thread_target():
+            while not self.scramble_updated:
+                self.tmp_scramble = target_data[1]
+                print(self.tmp_scramble)
+                self.scramble_updated = True
+
+        self.scramble_thread = Thread(target=scramble_thread_target)
+        self.scramble_thread.start()
