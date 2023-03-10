@@ -8,6 +8,7 @@ setup_managers([
     ScrambleManager(),
     TimerManager(),
     DataManager(),
-    ApplicationLoopManager(),
-    KeyboardManager()
+    KeyboardManager(),
+    ApplicationLoopManager()
 ])
+
